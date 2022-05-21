@@ -5,44 +5,38 @@
 
 ## uml 로 팩토리 메서드 패턴 파악
 
-```puml
-@startuml
-
-!theme plain
-top to bottom direction
-skinparam linetype ortho
-
+```mermaid
+classDiagram
+direction BT
 class ChicagoPizzaStore {
-  + createPizza(String): Pizza
+  + createPizza(String) Pizza
 }
 class ChicagoStyleClamPizza {
-  + cut(): void
+  + cut() void
 }
 class NYPizzaStore {
-  + createPizza(String): Pizza
+  + createPizza(String) Pizza
 }
 class NYStyleCheesePizza
 class NYStylePepperoniPizza
 class Pizza {
-  + cut(): void
-  + toString(): String
-  + prepare(): void
-  + box(): void
-  + getName(): String
-  + bake(): void
+  + cut() void
+  + toString() String
+  + prepare() void
+  + box() void
+  + getName() String
+  + bake() void
 }
 class PizzaStore {
-  + createPizza(String): Pizza
-  + orderPizza(String): Pizza
+  + createPizza(String) Pizza
+  + orderPizza(String) Pizza
 }
 
-ChicagoPizzaStore      -[#000082,plain]-^  PizzaStore            
-ChicagoStyleClamPizza  -[#000082,plain]-^  Pizza                 
-NYPizzaStore           -[#000082,plain]-^  PizzaStore            
-NYStyleCheesePizza     -[#000082,plain]-^  Pizza                 
-NYStylePepperoniPizza  -[#000082,plain]-^  Pizza                 
-@enduml
-
+ChicagoPizzaStore  -->  PizzaStore 
+ChicagoStyleClamPizza  -->  Pizza 
+NYPizzaStore  -->  PizzaStore 
+NYStyleCheesePizza  -->  Pizza 
+NYStylePepperoniPizza  -->  Pizza 
 
 ```
 
